@@ -16,27 +16,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { themeContext } from "../../../store/ThemeContext";
 
-const dataBoxReadings = [
-  {
-    label: "Latest reading",
-    labelValue: "1.047",
-    valueParams1: "SG",
-    valueParams2: "20/20",
-  },
-  {
-    label: "ABV",
-    labelValue: "4.8%",
-    valueParams1: "",
-    valueParams2: "",
-  },
-  {
-    label: "Attenuation",
-    labelValue: "81%",
-    valueParams1: "",
-    valueParams2: "",
-  },
-];
-
 export default function Home() {
   const [data, setData] = useState([]);
   const [err, setErr] = useState(false);
@@ -47,12 +26,11 @@ export default function Home() {
 
   const fetchUrl = process.env.NEXT_PUBLIC_FETCH_URL;
 
-  const savedId = JSON.parse(localStorage.getItem("f-chart-userID"));
-  if (savedId === null || savedId === undefined) {
-    return router.push("/");
-  }
-
   useEffect(() => {
+    const savedId = JSON.parse(localStorage.getItem("f-chart-userID"));
+    if (savedId === null || savedId === undefined) {
+      return router.push("/");
+    }
     const controller = new AbortController();
     const signal = controller.signal;
 

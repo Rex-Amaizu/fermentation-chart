@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Button from "@/components/global-components/Button";
 import Input from "@/components/global-components/Input";
 import { useRouter } from "next/navigation";
@@ -15,10 +15,12 @@ const page = () => {
 
   const router = useRouter();
 
-  const savedId = localStorage.getItem("f-chart-userID");
-  if (savedId === null || savedId === undefined) {
-    return router.push("/");
-  }
+  useEffect(() => {
+    const savedId = localStorage.getItem("f-chart-userID");
+    if (savedId === null || savedId === undefined) {
+      return router.push("/");
+    }
+  });
 
   const addMeasurement = (e) => {
     setIsLoading(true);
