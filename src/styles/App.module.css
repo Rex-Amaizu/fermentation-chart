@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 40px;
+  background-color: #f2eace;
+  overflow-x: hidden;
+}
+
+.containerDark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 40px;
+  background-color: #150d1a;
+  overflow-x: hidden;
+}
